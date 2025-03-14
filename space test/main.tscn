@@ -60,11 +60,5 @@ offset_bottom = 490.0
 text = "12"
 script = ExtResource("4_jnot7")
 
-[node name="vrag" parent="." instance=ExtResource("7_272bh")]
-position = Vector2(59, 27)
-
-[node name="vrag2" parent="." instance=ExtResource("7_272bh")]
-position = Vector2(138, 27)
-
-[node name="vrag3" parent="." instance=ExtResource("7_272bh")]
-position = Vector2(177, 32)
+[node name="coin" parent="." instance=ExtResource("7_272bh")]
+position = Vector2(89, 51)

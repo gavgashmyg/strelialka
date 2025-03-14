@@ -18,7 +18,7 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if  body.has_method("destroy"):
+	if body.has_method("destroy"):
 		body.live -= 1
 		queue_free()
 

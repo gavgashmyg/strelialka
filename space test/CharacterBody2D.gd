@@ -59,7 +59,7 @@ func  shot(pp):
 	elif pp == RS:
 		$AudioStreamPlayer.play()
 		var rocket = pp.instantiate()
-		print(666)
+		
 		af = false
 		rocket.global_position = global_position + Vector2(0,-20)
 		hot+=1
@@ -104,8 +104,9 @@ func _on_sec_timeout() -> void:
 
 
 func _on_loot_body_entered(body: Node2D) -> void:
+	print(321)
 	if body.has_method("looted"):
-		print(12)
+		print(body)
 		bag+=body.WEGHT
 		body.looted()
 		

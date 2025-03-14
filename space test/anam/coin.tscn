@@ -9,7 +9,7 @@
 font_size = 125
 font_color = Color(1, 0.662745, 0, 1)
 
-[node name="vrag" type="CharacterBody2D"]
+[node name="coin" type="CharacterBody2D"]
 script = ExtResource("1_88417")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -19,9 +19,9 @@ shape = SubResource("CircleShape2D_ppm0q")
 
 [node name="gl" type="Label" parent="."]
 offset_left = -17.0
-offset_top = -127.0
+offset_top = -126.0
 offset_right = 17.0
-offset_bottom = 44.0
+offset_bottom = 45.0
 text = "."
 label_settings = SubResource("LabelSettings_fv6m7")
 
