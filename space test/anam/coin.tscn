@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://5m2bo0ylsr"]
+
+[ext_resource type="Script" uid="uid://doybmkwo53uyp" path="res://anam/coin.gd" id="1_88417"]
+[ext_resource type="AudioStream" uid="uid://d1ah15xo2t3jo" path="res://audio/DESTROY.mp3" id="3_ixm45"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ppm0q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fv6m7"]
+font_size = 125
+font_color = Color(1, 0.662745, 0, 1)
+
+[node name="vrag" type="CharacterBody2D"]
+script = ExtResource("1_88417")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ppm0q")
+
+[node name="gl" type="Label" parent="."]
+offset_left = -17.0
+offset_top = -127.0
+offset_right = 17.0
+offset_bottom = 44.0
+text = "."
+label_settings = SubResource("LabelSettings_fv6m7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ixm45")
+volume_db = 10.306
+bus = &"sounds"

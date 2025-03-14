@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://dy6gx4nk6inn1"]
+
+[ext_resource type="PackedScene" uid="uid://b3jvtju0j6jbw" path="res://player.tscn" id="1_7e7lh"]
+[ext_resource type="Script" uid="uid://b1r3feiitn06m" path="res://stars.gd" id="1_vx0cy"]
+[ext_resource type="PackedScene" uid="uid://cpypue4g38mtx" path="res://vrag_spavner.tscn" id="3_n78po"]
+[ext_resource type="Script" uid="uid://dd14wanau20sf" path="res://Label.gd" id="4_jnot7"]
+[ext_resource type="AudioStream" uid="uid://di6p1agu5ndbk" path="res://audio/Greg_song_final_v.mp3" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://si36v5bur0qc" path="res://stars.tscn" id="6_fc6h3"]
+[ext_resource type="PackedScene" uid="uid://5m2bo0ylsr" path="res://anam/coin.tscn" id="7_272bh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h3ptq"]
+font_size = 5000
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84kqn"]
+size = Vector2(66, 2031.25)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_vx0cy")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -1449.0
+offset_top = -3157.0
+offset_right = 1661.0
+offset_bottom = 3653.0
+text = "X"
+label_settings = SubResource("LabelSettings_h3ptq")
+
+[node name="stars" parent="." instance=ExtResource("6_fc6h3")]
+position = Vector2(-5, -3)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_7e7lh")]
+position = Vector2(93, 446)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(269, -415.375)
+shape = SubResource("RectangleShape2D_84kqn")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-23, 180.25)
+shape = SubResource("RectangleShape2D_84kqn")
+
+[node name="vrag_spavner" parent="." instance=ExtResource("3_n78po")]
+position = Vector2(-1, 2)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_7mycd")
+volume_db = -1.87
+autoplay = true
+bus = &"music"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 172.0
+offset_top = 467.0
+offset_right = 212.0
+offset_bottom = 490.0
+text = "12"
+script = ExtResource("4_jnot7")
+
+[node name="vrag" parent="." instance=ExtResource("7_272bh")]
+position = Vector2(59, 27)
+
+[node name="vrag2" parent="." instance=ExtResource("7_272bh")]
+position = Vector2(138, 27)
+
+[node name="vrag3" parent="." instance=ExtResource("7_272bh")]
+position = Vector2(177, 32)

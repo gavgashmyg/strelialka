@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv4li3r5roml2"]
+
+[ext_resource type="Script" uid="uid://bf6gl3acdcxrh" path="res://anam/kfc.gd" id="1_f4xm8"]
+[ext_resource type="Texture2D" uid="uid://ce4finedlgu52" path="res://kfc_boss.jpg" id="2_ox6y8"]
+[ext_resource type="AudioStream" uid="uid://d1ah15xo2t3jo" path="res://audio/DESTROY.mp3" id="3_wpruw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1xpw"]
+size = Vector2(75, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_maqeh"]
+size = Vector2(77, 50)
+
+[node name="vrag" type="CharacterBody2D"]
+script = ExtResource("1_f4xm8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(37.5, 23)
+shape = SubResource("RectangleShape2D_w1xpw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(37.5, 23)
+shape = SubResource("RectangleShape2D_maqeh")
+
+[node name="gl" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="KfcBoss" type="Sprite2D" parent="."]
+position = Vector2(37, 22.25)
+scale = Vector2(0.119497, 0.0658466)
+texture = ExtResource("2_ox6y8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wpruw")
+volume_db = 10.306
+bus = &"sounds"

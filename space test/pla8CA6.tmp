@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3jvtju0j6jbw"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_q3486"]
+[ext_resource type="Texture2D" uid="uid://hifo44tnqsjl" path="res://чач.png" id="2_x1xje"]
+[ext_resource type="PackedScene" uid="uid://kdnlou2wosy" path="res://pula.tscn" id="3_8qjvw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85roy"]
+size = Vector2(22, 38)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_q3486")
+
+[node name="Чач" type="Sprite2D" parent="."]
+position = Vector2(11, 19)
+scale = Vector2(0.0981735, 0.166667)
+texture = ExtResource("2_x1xje")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11, 19)
+shape = SubResource("RectangleShape2D_85roy")
+
+[node name="PULA" parent="." instance=ExtResource("3_8qjvw")]
+position = Vector2(7, 1)

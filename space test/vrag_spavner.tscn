@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpypue4g38mtx"]
+
+[ext_resource type="Script" uid="uid://de4jcg4lbvkwn" path="res://vrag_spavner.gd" id="1_sh55i"]
+
+[node name="vrag_spavner" type="Node2D"]
+script = ExtResource("1_sh55i")
+
+[node name="for an" type="Node" parent="."]
+
+[node name="greg" type="Node" parent="for an"]
+
+[node name="Timer" type="Timer" parent="for an/greg"]
+wait_time = 1.647
+autostart = true
+
+[node name="kfc" type="Node" parent="for an"]
+
+[node name="Timer" type="Timer" parent="for an/kfc"]
+autostart = true
+
+[node name="hillti" type="Timer" parent="."]
+wait_time = 12.983
+autostart = true
+
+[connection signal="child_exiting_tree" from="for an/greg/Timer" to="." method="_on_timer_child_exiting_tree"]
+[connection signal="timeout" from="for an/greg/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="for an/kfc/Timer" to="." method="_on_timer_kfc_timeout"]
+[connection signal="timeout" from="hillti" to="." method="_on_hillti_timeout"]

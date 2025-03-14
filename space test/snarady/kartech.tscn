@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cym5uykoshwy"]
+
+[ext_resource type="Script" uid="uid://duc03mkg7dt5x" path="res://snarady/kartech.gd" id="1_ywdy7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l4ay4"]
+line_spacing = 1.0
+font_size = 10
+font_color = Color(0.990002, 0.447844, 0.425798, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0jdbi"]
+radius = 5.0
+
+[node name="kartech" type="CharacterBody2D"]
+position = Vector2(1, 1)
+script = ExtResource("1_ywdy7")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 5.0
+offset_bottom = 8.0
+text = "@"
+label_settings = SubResource("LabelSettings_l4ay4")
+max_lines_visible = 3
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5, 7)
+shape = SubResource("CircleShape2D_0jdbi")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
