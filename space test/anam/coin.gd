@@ -11,7 +11,7 @@ var live = 1
 func _physics_process(delta):
 	$AudioStreamPlayer.play()
 	if live<=0:
-		destroy()
+		looted()
 	move_and_collide(Vector2.UP * SPEED * delta * -1)
 	if position.y >= 500:
 		
@@ -31,8 +31,10 @@ func gg():
 func looted():
 	queue_free()
 	
-func destroy():
-	$AudioStreamPlayer.play()
-	
-	
-	queue_free()
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_method("shot"):
+		body.bag+=1
+		looted()

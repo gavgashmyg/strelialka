@@ -3,17 +3,18 @@ extends Node
 const FILE = preload("res://data/records.json")
 var num =0
 var record = 0
-var stuff = {"rec":0}
+var stuff = {"rec":0,"money":0}
 var hp = 3
 var time = 0
 var money = 0
-
+var capital = 0
+var bbag = 0
 func _ready() -> void:
 	var data = load_game()
 	record = data["record"]
-
+	capital = data["money"]
 func _process(delta):
-	stuff ={"rec":record}
+	stuff ={"rec":record,"money":capital}
 	if record< num:
 		record = num
 

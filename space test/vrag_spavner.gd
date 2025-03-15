@@ -3,6 +3,7 @@ const gg = preload("res://gg.tscn")
 const an = preload("res://greg.tscn")
 const kfc = preload("res://anam/Kfc.tscn")
 const hill = preload("res://anam/hill.tscn")
+
 var rng = RandomNumberGenerator.new()
 var hard = 1
 var over = false
@@ -10,8 +11,6 @@ var over = false
 func _ready():
 	print()
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
@@ -19,11 +18,11 @@ func _process(delta):
 		ggf()
 		over = true
 	if Global.num == 0:
-		hard = 1
 		
-		$"for an/greg/Timer".wait_time =   hard
+		
+		$"for an/greg/Timer".wait_time =  3
 	else:
-		hard =   1    / Global.num
+		hard =   10    / Global.num
 		$"for an/greg/Timer".wait_time =   hard
 		$"for an/kfc/Timer".wait_time =   hard*3
 func spavn(obj):

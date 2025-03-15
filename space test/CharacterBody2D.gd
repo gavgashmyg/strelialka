@@ -64,6 +64,8 @@ func  shot(pp):
 		rocket.global_position = global_position + Vector2(0,-20)
 		hot+=1
 		add_child(rocket)
+		if Global.hp<=1:
+			Global.capital += bag
 
 
 
@@ -89,6 +91,7 @@ func  lazer(a):
 		$lazer.sh = 1
 		
 func death():
+	Global.capital += bag
 	scale.y =3
 	scale.x =3
 	if Global.num< Global.record:
@@ -104,9 +107,9 @@ func _on_sec_timeout() -> void:
 
 
 func _on_loot_body_entered(body: Node2D) -> void:
-	print(321)
-	if body.has_method("looted"):
-		print(body)
-		bag+=body.WEGHT
-		body.looted()
+	pass
+	#if body.has_method("looted"):
+		#print(body)
+		#bag+=body.WEGHT
+		#body.looted()
 		
