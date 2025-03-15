@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dve7q36ltte6o"
-path="res://.godot/imported/klipartz.com (11).png-ae1347b40e195f34456bc0797b0327ab.ctex"
+uid="uid://eir6diuq0c2u"
+path="res://.godot/imported/photo_2024-12-24_18-48-23.jpg-bb2ae2d6a5ec307a01bf5e487167cc34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tectures/klipartz.com (11).png"
-dest_files=["res://.godot/imported/klipartz.com (11).png-ae1347b40e195f34456bc0797b0327ab.ctex"]
+source_file="res://SIEGHEIL/photo_2024-12-24_18-48-23.jpg"
+dest_files=["res://.godot/imported/photo_2024-12-24_18-48-23.jpg-bb2ae2d6a5ec307a01bf5e487167cc34.ctex"]
 
 [params]
 
