@@ -12,7 +12,7 @@ func _process(delta):
 	if Input.is_action_pressed("ui_focus_next"):  
 		Global.time = 0
 		t+=1
-		print(t)
+		
 
 
 

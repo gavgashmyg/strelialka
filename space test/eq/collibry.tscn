@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxpaouherdrc8"]
+
+[ext_resource type="Script" uid="uid://bkoyk77tpq3oo" path="res://skripts/collibri.gd" id="1_3bsap"]
+[ext_resource type="Texture2D" uid="uid://cpxp0rnpavi6s" path="res://tectures/kolibri.png" id="2_ogh0b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bsap"]
+atlas = ExtResource("2_ogh0b")
+region = Rect2(0, 0, 66, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85c3m"]
+atlas = ExtResource("2_ogh0b")
+region = Rect2(66, 0, 66, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep3fb"]
+atlas = ExtResource("2_ogh0b")
+region = Rect2(132, 0, 66, 51)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5tsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bsap")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85c3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ep3fb")
+}],
+"loop": true,
+"name": &"hot",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[node name="colibry" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_3bsap")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(12.3526, 15.0079)
+scale = Vector2(0.379168, 0.587927)
+sprite_frames = SubResource("SpriteFrames_p5tsd")
+animation = &"hot"
+autoplay = "default"
+frame_progress = 0.149457

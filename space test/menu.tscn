@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://clwydvw4me8gk"]
+[gd_scene load_steps=3 format=3 uid="uid://clwydvw4me8gk"]
 
 [ext_resource type="Script" uid="uid://dwqd07nc75j4" path="res://menu.gd" id="1_1krpe"]
+[ext_resource type="FontFile" uid="uid://bfsfb7p7emjlv" path="res://fonts/Pulstar-Regular.ttf" id="2_ouk20"]
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_1krpe")
@@ -10,6 +11,7 @@ offset_left = 91.0
 offset_top = 190.0
 offset_right = 136.0
 offset_bottom = 221.0
+theme_override_fonts/font = ExtResource("2_ouk20")
 text = "СТАРТ"
 
 [node name="Label" type="Label" parent="."]
@@ -23,6 +25,7 @@ offset_left = 92.0
 offset_top = 238.0
 offset_right = 152.0
 offset_bottom = 269.0
+theme_override_fonts/font = ExtResource("2_ouk20")
 text = "АНГАР"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

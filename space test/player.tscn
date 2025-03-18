@@ -1,42 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3jvtju0j6jbw"]
+[gd_scene load_steps=5 format=3 uid="uid://b3jvtju0j6jbw"]
 
 [ext_resource type="Script" uid="uid://c7lldrpvnovhr" path="res://CharacterBody2D.gd" id="1_q3486"]
-[ext_resource type="Texture2D" uid="uid://d0s41hxw0kwhd" path="res://tectures/klipartz.com (1).png" id="2_sweqy"]
-[ext_resource type="Texture2D" uid="uid://cxwc8ivnl047l" path="res://tectures/klipartz.com (11).png" id="3_2hs0m"]
-[ext_resource type="PackedScene" uid="uid://jwui2brcvxfi" path="res://snarady/lazer.tscn" id="3_hum8y"]
 [ext_resource type="AudioStream" uid="uid://b0nd0klukmgqv" path="res://audio/shot.mp3" id="4_ri2oi"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_g4054"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_sweqy")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_sweqy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_2hs0m")
-}],
-"loop": false,
-"name": &"hot",
-"speed": 2.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation_1",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85roy"]
 size = Vector2(22, 38)
@@ -47,19 +12,10 @@ radius = 64.0078
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_q3486")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(10.7036, 18.9802)
-rotation = -3.13846
-scale = Vector2(0.0489771, 0.0779758)
-sprite_frames = SubResource("SpriteFrames_g4054")
-animation = &"hot"
-frame = 1
-frame_progress = 1.0
-
 [node name="Label" type="Label" parent="."]
-offset_top = 35.0
+offset_top = 58.0
 offset_right = 22.0
-offset_bottom = 58.0
+offset_bottom = 81.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -70,9 +26,6 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11, 19)
 shape = SubResource("RectangleShape2D_85roy")
-
-[node name="lazer" parent="." instance=ExtResource("3_hum8y")]
-position = Vector2(12, 14)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ri2oi")
@@ -88,7 +41,11 @@ ignore_time_scale = true
 position = Vector2(11, 19)
 shape = SubResource("CircleShape2D_sweqy")
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[node name="hot_t" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="sec" to="." method="_on_sec_timeout"]
 [connection signal="body_entered" from="loot" to="." method="_on_loot_body_entered"]
+[connection signal="timeout" from="hot_t" to="." method="_on_hot_t_timeout"]

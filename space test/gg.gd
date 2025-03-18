@@ -5,7 +5,7 @@ var data = {"record":Global.record}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.capital += Global.money+Global.num
-	Global.save_game(data)
+	Global.save_game_u()
 	$AudioStreamPlayer2D.play()
 	
 

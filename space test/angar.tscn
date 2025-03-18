@@ -1,119 +1,114 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3sdcuoy1yv7p"]
+[gd_scene load_steps=5 format=3 uid="uid://v6twi16lfoqc"]
 
-[ext_resource type="Script" uid="uid://g8l5v3yyng8e" path="res://angar.gd" id="1_o2px2"]
-[ext_resource type="PackedScene" uid="uid://b3jvtju0j6jbw" path="res://player.tscn" id="2_3onla"]
-[ext_resource type="Script" uid="uid://csc6ckkb8jab1" path="res://skripts/lazer.gd" id="3_3onla"]
+[ext_resource type="Script" uid="uid://g8l5v3yyng8e" path="res://angar.gd" id="1_5sb28"]
+[ext_resource type="PackedScene" uid="uid://b3jvtju0j6jbw" path="res://player.tscn" id="2_o2px2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5im2"]
-size = Vector2(16, 193)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3onla"]
+b = Vector2(2, 175)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2px2"]
-size = Vector2(28.9268, 20)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_h5im2"]
+b = Vector2(208, 0)
 
-[sub_resource type="LabelSettings" id="LabelSettings_h5im2"]
-font_size = 12
+[node name="angar" type="Node2D"]
+script = ExtResource("1_5sb28")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_od6sb"]
-texture_filter = 1
-
-[node name="Angar" type="Node2D"]
-script = ExtResource("1_o2px2")
-
-[node name="Player" parent="." instance=ExtResource("2_3onla")]
-position = Vector2(57, 130)
+[node name="Player" parent="." instance=ExtResource("2_o2px2")]
+position = Vector2(5, 108)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2, 86.5)
-shape = SubResource("RectangleShape2D_h5im2")
+shape = SubResource("SegmentShape2D_3onla")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(204, 87)
-shape = SubResource("RectangleShape2D_h5im2")
+position = Vector2(207, 0)
+shape = SubResource("SegmentShape2D_3onla")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(94.4, 189)
-scale = Vector2(8.2, 1)
-shape = SubResource("RectangleShape2D_o2px2")
+position = Vector2(0, 169)
+shape = SubResource("SegmentShape2D_h5im2")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 52.0
-offset_top = 269.0
-offset_right = 109.0
-offset_bottom = 292.0
-scale = Vector2(1.28089, 3.9342)
+[node name="esc" type="Button" parent="."]
+offset_left = 199.0
+offset_top = -3.0
+offset_right = 259.0
+offset_bottom = 28.0
+text = "выход"
 
-[node name="Button" type="Button" parent="."]
-offset_left = 200.0
-offset_top = 467.0
-offset_right = 256.0
-offset_bottom = 498.0
-text = "назад"
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="Node" type="Node" parent="."]
-
-[node name="Label" type="Label" parent="Node"]
-offset_left = 2.0
-offset_top = 211.0
-offset_right = 58.0
-offset_bottom = 234.0
+[node name="core" type="Label" parent="Node2D"]
+offset_left = 3.0
+offset_top = 170.0
+offset_right = 43.0
+offset_bottom = 193.0
 text = "корпус"
-label_settings = SubResource("LabelSettings_h5im2")
 
-[node name="Button" type="Button" parent="Node/Label"]
+[node name="colibry" type="CheckButton" parent="Node2D/core"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 23.0
-offset_right = 40.0
-offset_bottom = 45.0
-scale = Vector2(0.463333, 0.751485)
+offset_left = -6.0
+offset_top = 17.0
+offset_right = 112.0
+offset_bottom = 48.0
+scale = Vector2(0.721436, 0.7549)
 text = "калибри"
 
-[node name="Label2" type="Label" parent="Node"]
-offset_left = 51.0
-offset_top = 212.0
-offset_right = 107.0
-offset_bottom = 235.0
-text = "оружие"
-label_settings = SubResource("LabelSettings_h5im2")
-
-[node name="Button" type="Button" parent="Node/Label2"]
+[node name="golub" type="CheckButton" parent="Node2D/core"]
 layout_mode = 0
-offset_top = 20.0
-offset_right = 76.0
-offset_bottom = 51.0
-scale = Vector2(0.646141, 0.871313)
-text = "пулемёт"
-icon = SubResource("CanvasTexture_od6sb")
+offset_left = -131.0
+offset_top = 47.0
+offset_right = -28.0
+offset_bottom = 78.0
+scale = Vector2(0.779064, 0.788575)
+text = "голубь"
 
-[node name="Button2" type="Button" parent="Node/Label2"]
+[node name="Button" type="Button" parent="Node2D/core/golub"]
 layout_mode = 0
-offset_left = -1.0
-offset_top = 53.0
-offset_right = 75.0
-offset_bottom = 84.0
-scale = Vector2(0.646141, 0.871313)
+offset_left = 1.28359
+offset_top = 1.26811
+offset_right = 106.284
+offset_bottom = 32.2681
+text = "5"
+
+[node name="wopen" type="Label" parent="Node2D"]
+offset_left = 91.0
+offset_top = 170.0
+offset_right = 147.0
+offset_bottom = 193.0
+text = "корпус"
+
+[node name="gun" type="CheckButton" parent="Node2D/wopen"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 17.0
+offset_right = 112.0
+offset_bottom = 48.0
+scale = Vector2(0.721436, 0.7549)
+text = "калибри"
+
+[node name="lazer" type="CheckButton" parent="Node2D/wopen"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 45.0
+offset_right = 104.0
+offset_bottom = 76.0
+scale = Vector2(0.779064, 0.788575)
 text = "лазер"
 
-[node name="lazer" type="Node" parent="Node/Label2/Button2"]
-script = ExtResource("3_3onla")
-
-[node name="Label3" type="Label" parent="Node"]
-offset_left = 104.0
-offset_top = 212.0
-offset_right = 160.0
-offset_bottom = 235.0
-text = "радиатор"
-label_settings = SubResource("LabelSettings_h5im2")
-
-[node name="Button" type="Button" parent="Node/Label3"]
+[node name="Button" type="Button" parent="Node2D/wopen/lazer"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 22.0
-offset_right = 86.0
-offset_bottom = 53.0
-scale = Vector2(0.749836, 0.811559)
-text = "световой"
+offset_left = 1.28359
+offset_top = 1.26811
+offset_right = 106.284
+offset_bottom = 32.2681
+text = "5"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_esc_pressed"]
+[node name="valy" type="Label" parent="."]
+offset_top = 462.0
+offset_right = 40.0
+offset_bottom = 485.0
+
+[connection signal="pressed" from="esc" to="." method="_on_esc_pressed"]
+[connection signal="pressed" from="Node2D/core/golub/Button" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="Node2D/wopen/gun" to="." method="_on_gun_toggled"]
+[connection signal="pressed" from="Node2D/wopen/lazer/Button" to="." method="_on_button_lazer_pressed"]

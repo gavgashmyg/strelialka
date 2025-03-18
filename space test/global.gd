@@ -9,15 +9,20 @@ var time = 0
 var money = 0
 var capital = 0
 var bbag = 0
+
 func _ready() -> void:
+	
+	
 	var data = load_game()
+	
 	record = data["record"]
-	capital = data["money"]
+	capital = data["capital"]
 func _process(delta):
 	stuff ={"rec":record,"money":capital}
 	if record< num:
 		record = num
-
+func save_game_u():
+	save_game({"record":record,"capital":capital})
 func save_game(data):
 	var file = FileAccess.open("res://data/records.json",FileAccess.WRITE)
 	if file:
@@ -27,7 +32,10 @@ func save_game(data):
 		print("game saved")
 	else:
 		print("game save failed")
-	
+
+func getter(obj):
+	return Global.data[obj]
+
 func load_game():
 	var file = FileAccess.open("res://data/records.json",FileAccess.READ)
 	if file:
@@ -38,7 +46,9 @@ func load_game():
 		
 		if result == OK:
 			var data = json.get_data()
+			
 			return data
+			
 	#"res://data/records.tres".record = record
 #
 #func save_game():

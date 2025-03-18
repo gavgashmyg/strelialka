@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://jwui2brcvxfi"]
+
+[ext_resource type="Script" uid="uid://beevleap16bs1" path="res://lazer.gd" id="1_d3tbw"]
+[ext_resource type="Script" uid="uid://csc6ckkb8jab1" path="res://skripts/lazer.gd" id="1_rojx5"]
+[ext_resource type="Texture2D" uid="uid://bg5fk0k7er7ua" path="res://icon.svg" id="3_rojx5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkgnk"]
+size = Vector2(6, 6)
+
+[node name="lazer" type="CharacterBody2D"]
+position = Vector2(9, 9)
+scale = Vector2(3, 3)
+script = ExtResource("1_rojx5")
+
+[node name="lazer" type="Area2D" parent="."]
+position = Vector2(2, 472)
+script = ExtResource("1_d3tbw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lazer"]
+position = Vector2(-2, -472)
+shape = SubResource("RectangleShape2D_gkgnk")
+
+[node name="Icon" type="Sprite2D" parent="lazer"]
+position = Vector2(-2, -472)
+scale = Vector2(0.046875, 0.046875)
+texture = ExtResource("3_rojx5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.365
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 5.698
+
+[connection signal="body_entered" from="lazer" to="." method="_on_lazer_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

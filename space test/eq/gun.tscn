@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bafduo01n3qjl"]
+
+[ext_resource type="Script" uid="uid://d1jv0ax76y500" path="res://gun.gd" id="1_i7asc"]
+
+[node name="gun" type="CharacterBody2D"]
+script = ExtResource("1_i7asc")
